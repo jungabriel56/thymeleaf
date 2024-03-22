@@ -21,7 +21,12 @@
             <tr th:each="pessoa: ${pessoas}">
                 <td th:text="${pessoa.id}"></td>
                 <td th:text="${pessoa.nome}"></td>
-                <td th:text="${pessoa.sexo}"></td>
+                <td th:switch="${pessoa.sexo.name()}">
+                	<span th:case="M" th:text="Masculino"></span>
+                	<span th:case="F" th:text="Feminino"></span>
+                
+                
+                </td>
             </tr>
             
         </table>
