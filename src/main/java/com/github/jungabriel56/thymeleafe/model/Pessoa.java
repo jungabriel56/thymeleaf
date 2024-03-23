@@ -1,6 +1,8 @@
 package com.github.jungabriel56.thymeleafe.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Entity
@@ -8,6 +10,8 @@ public class Pessoa {
 	@Id
 	private Long id;
 	private String nome;
+	
+	@Enumerated(EnumType.STRING)
 	private SexoTipo sexo;
 	
 	

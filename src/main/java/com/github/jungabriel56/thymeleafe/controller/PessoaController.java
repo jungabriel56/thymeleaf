@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.github.jungabriel56.thymeleafe.model.Pessoa;
-import com.github.jungabriel56.thymeleafe.repository.PessoaRepositoryMockup;
+import com.github.jungabriel56.thymeleafe.repository.PessoaRepository;
 
 @Controller
 @RequestMapping("/pessoas")
 public class PessoaController {
 	@Autowired
-	private PessoaRepositoryMockup pessoaRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@RequestMapping(value = "/listar", method = RequestMethod.GET)
 	public String lista(Model model) {
-		List<Pessoa> pessoas = pessoaRepository.list();
+		List<Pessoa> pessoas = pessoaRepository.findAll();
 		model.addAttribute("pessoas", pessoas);
 		
 		return "pessoa/lista.html";
